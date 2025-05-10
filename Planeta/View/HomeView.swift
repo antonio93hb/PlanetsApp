@@ -59,7 +59,6 @@ struct HomeView: View {
                     endPoint: .leading
                 )
             )
-            
         }
         
         VStack {

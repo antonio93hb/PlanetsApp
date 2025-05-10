@@ -24,7 +24,6 @@ struct QuestionnaireView: View {
     @State private var isPresented = false
     @FocusState private var focusedField: Field?
 
-    
     //    func sendEmail(_ name: String, _ email: String) -> Bool {
     //        //Comprobar que no se rellene con espacios en blanco "trimingcaracter"
     //        if name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty || email.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
@@ -61,7 +60,9 @@ struct QuestionnaireView: View {
                     EmptyView()
                 }
                 header:{
+                    
                     HStack{
+                        
                         Spacer()
                         Text("QUESTIONNAIRE")
                             .frame(width: .infinity ,alignment: .center)
@@ -72,12 +73,14 @@ struct QuestionnaireView: View {
                     }
                 }
                 Section{
+                    
                     TextField("Name", text: $name)
                         .focused($focusedField, equals: .name)
                         .submitLabel(.next)
                         .onSubmit {
                             focusedField = .email
                         }
+                    
                     TextField("Email", text: $email)
                         .focused($focusedField, equals: .email)
                         .submitLabel(.done)
@@ -90,7 +93,9 @@ struct QuestionnaireView: View {
                 }
                 
                 Section{
+                    
                     Picker("Theme", selection: $selectedTema) {
+                        
                         Text("Planets").tag(Temas.planetas)
                         Text("Moons").tag(Temas.lunas)
                         Text("Solar Systeme").tag(Temas.sistemaSolar)

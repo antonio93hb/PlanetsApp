@@ -13,18 +13,21 @@ struct GridCellView: View {
 
     var body: some View {
         ZStack {
+            
             RoundedRectangle(cornerRadius: 8)
                 .fill(Color.gray)
                 .opacity(0.2)
+            
             VStack{
+                
                 Text(planet.title)
                     .font(.headline)
+                
                 Image(planet.name)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 80)
             }
-
         }
     }
 }

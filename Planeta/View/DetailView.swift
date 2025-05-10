@@ -34,12 +34,10 @@ struct DetailView: View {
                 Text("The distance from the Sun is: **\(planet.distanceFromSunKm)** kms")
                     .font(.callout)
                     .padding()
-
             }
             .frame(maxWidth: 380)
         }
         .scrollBounceBehavior(.basedOnSize)
-
     }
 }
 
