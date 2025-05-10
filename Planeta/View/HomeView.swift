@@ -13,6 +13,8 @@ struct HomeView: View {
     @State private var showCapsule = false
     @State private var selectedPlanet: Planet?
     
+    @StateObject private var particleVM = ParticleViewModel()
+    
     let planets: [Planet] = planetas.sorted {$0.distanceFromSunKm > $1.distanceFromSunKm}
     
     var body: some View {
@@ -21,7 +23,7 @@ struct HomeView: View {
             Text("Planets")
                 .font(.title)
                 .bold()
-                .padding(.top)
+                .padding()
             
             ScrollView(.horizontal) {
                 HStack(spacing: 10) {
@@ -57,6 +59,7 @@ struct HomeView: View {
                     endPoint: .leading
                 )
             )
+            
         }
         
         VStack {
@@ -104,6 +107,35 @@ struct HomeView: View {
             .foregroundStyle(.white)
             .buttonStyle(.borderedProminent)
             .buttonBorderShape(.capsule)
+            
+            GeometryReader { geo in
+                ZStack {
+                    ForEach(particleVM.particles) { particle in
+                        Circle()
+                            .fill(particle.color)
+                            .frame(width: particle.size, height: particle.size)
+                            .position(
+                                x: particle.x * geo.size.width,
+                                y: particle.y * geo.size.height
+                            )
+                    }
+                }
+                .contentShape(Rectangle()) // Esto asegura que el área completa sea "tocable"
+                .onTapGesture {
+                    withAnimation {
+                        particleVM.changeParticleColors()
+                    }
+                }
+            }
+            .frame(height: 200) // Puedes ajustar la altura del área de partículas
+            .background(Color.black)
+            .cornerRadius(16)
+            .padding()
+        }
+        .padding()
+        .onAppear {
+            particleVM.createParticles(count: 100)
+            particleVM.startMovingParticles()
         }
     }
 }

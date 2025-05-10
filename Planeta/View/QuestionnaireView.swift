@@ -63,7 +63,7 @@ struct QuestionnaireView: View {
                 header:{
                     HStack{
                         Spacer()
-                        Text("Suscripción a la información")
+                        Text("QUESTIONNAIRE")
                             .frame(width: .infinity ,alignment: .center)
                             .foregroundStyle(.black)
                             .font(.callout)
@@ -72,13 +72,13 @@ struct QuestionnaireView: View {
                     }
                 }
                 Section{
-                    TextField("Nombre", text: $name)
+                    TextField("Name", text: $name)
                         .focused($focusedField, equals: .name)
                         .submitLabel(.next)
                         .onSubmit {
                             focusedField = .email
                         }
-                    TextField("Correo electrónico", text: $email)
+                    TextField("Email", text: $email)
                         .focused($focusedField, equals: .email)
                         .submitLabel(.done)
                         .onSubmit {
@@ -86,31 +86,34 @@ struct QuestionnaireView: View {
                         }
                 }
                 header: {
-                    Text("TUS DATOS")
+                    Text("YOUR INFORMATION")
                 }
                 
                 Section{
-                    Picker("Tema", selection: $selectedTema) {
-                        Text("Planetas").tag(Temas.planetas)
-                        Text("Lunas").tag(Temas.lunas)
-                        Text("Sistema Solar").tag(Temas.sistemaSolar)
+                    Picker("Theme", selection: $selectedTema) {
+                        Text("Planets").tag(Temas.planetas)
+                        Text("Moons").tag(Temas.lunas)
+                        Text("Solar Systeme").tag(Temas.sistemaSolar)
                     }
                 }
                 header: {
-                    Text("¿SOBRE QUÉ TE GUSTARÍA SABER MÁS?")
+                    Text("What do you want to know?")
                 }
                 
-                Button("Enviar") {
+                Button("Send") {
                     isPresented = true
                 }
                 .disabled(isFormValid)
                 //                .disabled(sendEmail(name, email))
                 .alert(isPresented: $isPresented) {
                     Alert(title: Text(name),
-                          message: Text("Recibido. Le contestaremos a \(email) sobre su duda de \(selectedTema.rawValue)"),
+                          message: Text("Thank you \(name). We have received your email. We will contact you for \(email) about \(selectedTema.rawValue)"),
                           dismissButton: .default(Text("OK")))
                 }
             }
+        }
+        .onAppear {
+            focusedField = .name
         }
     }
 }
