@@ -1,0 +1,43 @@
+# Xcode
+build/
+DerivedData/
+*.xcworkspace
+*.xcodeproj/project.xcworkspace/
+*.xcodeproj/xcuserdata/
+
+# User-specific settings
+*.xcuserstate
+*.xcscmblueprint
+*.xccheckout
+*.moved-aside
+*.swp
+*.dat
+
+# SwiftPM
+Packages/
+.swiftpm/
+.build/
+
+# Carthage
+Carthage/Build/
+
+# SPM
+.build/
+
+# Fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots
+fastlane/test_output
+
+# Archives
+*.xcarchive
+
+# Provisioning profiles
+*.mobileprovision
+
+# Logs
+*.log
+
+# DS_Store (macOS)
+.DS_Store
