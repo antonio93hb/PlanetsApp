@@ -6,11 +6,13 @@
 
 ## ✨ Funcionalidades
 
-- ✅ Lista horizontal de planetas con imágenes y nombres.
-- ✅ Vista detallada para cada planeta con información ampliada.
+- ✅ Lista horizontal de planetas con imágenes y nombres (scroll paginado).
+- ✅ Vista detallada para cada planeta con información ampliada (mediante scroll home con sheet o listado y cuadrícula a una nueva vista).
 - ✅ Animación visual de la distancia entre el Sol y la Tierra.
 - ✅ Formulario de suscripción con validación de nombre y email.
 - ✅ Selección de temas preferidos: planetas, lunas o sistema solar.
+- ✅ Mensaje en alerta con nombre, email y tema elegido.
+- ✅ Vista de partículas en movimiento y con cambio de color al hacer click.
 - ✅ Diseño adaptado, colorido y amigable para jóvenes estudiantes.
 
 ---
@@ -27,7 +29,13 @@
 
 ## 📸 Capturas
 
-*(Aquí añadiré imágenes)*
+| Pantalla principal | Pantalla listado | Pantalla cuadrícula |
+|--------------------|------------------|----------------------|
+| <img src="imgPlanet/01.png" width="200"/> | <img src="imgPlanet/02.png" width="200"/> | <img src="imgPlanet/03.png" width="200"/> |
+
+| Pantalla detalle | Pantalla cuestionario | Pantalla mensaje |
+|------------------|------------------------|------------------|
+| <img src="imgPlanet/04.png" width="200"/> | <img src="imgPlanet/05.png" width="200"/> | <img src="imgPlanet/06.png" width="200"/> |
 
 ---
 
